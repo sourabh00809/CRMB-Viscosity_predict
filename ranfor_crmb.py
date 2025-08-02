@@ -24,10 +24,7 @@ print(f"R² Score: {r2_score(y_test, y_pred):.3f}")
 print(f"MAE: {mean_absolute_error(y_test, y_pred):.3f}")
 print(f"MSE: {mean_squared_error(y_test, y_pred):.3f}")
 
-
-joblib.dump(model, "crmb_viscosity_rf_model.pkl")
-
-#prediction for any new sample input   0.39333  0.23536
+#prediction for any sample input
 new_sample = pd.DataFrame({
     "cr_dosage": [20],
     "mixing_temp": [180],
@@ -38,4 +35,4 @@ new_sample = pd.DataFrame({
 })
 
 predicted_viscosity = model.predict(new_sample)[0]
-print(f"CRMB Viscosity for given sample data(ranfor): {predicted_viscosity:.2f}")
+print(f"CRMB Viscosity for given sample data(randomForest): {predicted_viscosity:.2f}")
